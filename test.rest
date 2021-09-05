@@ -3,18 +3,18 @@ Content-Type: application/json
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMTk1MWZhM2FjZWEzNDRmODQ2OTYzNCIsImlzQWRtaW4iOnRydWUsIm5hbWUiOiJhaG1hZHJlemFhYSIsImlhdCI6MTYyOTU3MTc4NiwiZXhwIjoxNjI5ODMwOTg2fQ.zEDC9kZXo396lu9qR5O6mJ8wJ-6naLlzN6ysYWhOKss
 
 ###
-POST http://localhost:5000/user/register
+POST https://pizzland.herokuapp.com/user/register
 Content-Type: application/json
 
 { 
      "name":"ahmad",
-     "email":"ahmadrexs130@gmail.com",
+     "email":"ahmadsdasass130@gmail.com",
      "password":"password",
      "address":"sdfdsvgd"
      
 }
 ###
-POST http://localhost:5000/user/login
+POST https://pizzland.herokuapp.com/login
 Content-Type: application/json
 
 { 
@@ -56,7 +56,7 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMTk1MWZhM2FjZWEzNDRmODQ2O
 ###
 ###
 
-GET  http://localhost:5000/foods/
+GET  https://pizzland.herokuapp.com/foods
 Content-Type: application/json
 
 
