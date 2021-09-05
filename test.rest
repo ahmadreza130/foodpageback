@@ -7,8 +7,8 @@ POST http://localhost:5000/user/register
 Content-Type: application/json
 
 { 
-     "name":"ccdzscd",
-     "email":"csdvcd@gmail.com",
+     "name":"ahmad",
+     "email":"ahmadrexs130@gmail.com",
      "password":"password",
      "address":"sdfdsvgd"
      
@@ -19,7 +19,7 @@ Content-Type: application/json
 
 { 
     
-     "email":"ahmadrex1@gmail.com",
+     "email":"ahmadrexs130@gmail.com",
      "password":"password"
 }
 ###

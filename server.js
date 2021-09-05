@@ -22,7 +22,4 @@ app.use('/user', regRoute)
 app.use('/user', userRoute)
 app.use('/foods', foodRouts)
 
-if(process.env.NODE_ENV==="production"){
-
-}
-app.listen(process.env.PORT, () => console.log('server on'))
+app.listen(process.env.PORT || 8080, () => console.log('server on'))
