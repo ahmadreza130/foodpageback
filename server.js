@@ -22,4 +22,4 @@ app.use('/user', regRoute)
 app.use('/user', userRoute)
 app.use('/foods', foodRouts)
 
-app.listen(process.env.PORT || 8080, () => console.log('server on'))
+app.listen(process.env.PORT || 8080,"0.0.0.0", () => console.log('server on'))

@@ -8,7 +8,7 @@ Content-Type: application/json
 
 { 
      "name":"ahmad",
-     "email":"ahmadrexs120@gmail.com",
+     "email":"ahmadrexs1d20@gmail.com",
      "password":"ahmadrexs120",
      "address":"sdfdsvgd"
      
@@ -19,7 +19,7 @@ Content-Type: application/json
 
 { 
     
-     "email":"ahmadrexs120@gmail.com",
+     "email":"ahmadrexs1d20@gmail.com",
      "password":"ahmadrexs120"
 }
 ###
