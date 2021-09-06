@@ -38,7 +38,6 @@ router.post('/login', async (req, res) => {
             return (res.status(400).json('wrong email or password'))
 
         }
-
         const bytes = CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY);
         const originalPassword = bytes.toString(CryptoJS.enc.Utf8);
         if (req.body.password === originalPassword) {
@@ -52,7 +51,7 @@ router.post('/login', async (req, res) => {
             const { password, ...info } = user._doc
             res.status(200).json({ ...info, accessToken })
         } else {
-            res.ststus(400).json('wrong email or password')
+            res.status(400).json('wrong email or password')
         }
     } catch (err) {
         res.status(500).json(err)

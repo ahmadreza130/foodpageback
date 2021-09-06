@@ -9,7 +9,7 @@ const regRoute = require('./routes/register&login')
 
 dotenv.config()
 const app = express();
-mongoose.connect("mongodb+srv://ahmad:ahmad@cluster0.22ioe.mongodb.net/fatsfood?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGO_CONNECTION, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
