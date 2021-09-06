@@ -8,8 +8,8 @@ Content-Type: application/json
 
 { 
      "name":"ahmad",
-     "email":"ahmadreza130@gmail.com",
-     "password":"ahmadreza130",
+     "email":"ahmadrexs120@gmail.com",
+     "password":"ahmadrexs120",
      "address":"sdfdsvgd"
      
 }
@@ -19,8 +19,8 @@ Content-Type: application/json
 
 { 
     
-     "email":"ahmadrexs130@gmail.com",
-     "password":"ahmadreza130"
+     "email":"ahmadrexs120@gmail.com",
+     "password":"ahmadrexs120"
 }
 ###
 
