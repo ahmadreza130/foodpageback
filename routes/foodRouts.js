@@ -4,15 +4,37 @@ const CryptoJS = require("crypto-js");
 const jwt = require('jsonwebtoken')
 const verify = require('../verify');
 
-//getAll
-router.get('/', async (req, res) => {
-    try {
-        const allfoods = await Food.find()
-        res.status(200).json(allfoods)
-    } catch (err) {
-        res.status(500).json(err)
+
+//get by serach and pagination
+router.post("/", async (req, res) => {
+    if ((req.body.searched)?.length) {
+        try {
+            const search = req.body.searched
+
+            const foods = await Food.find(
+                {
+                    $or:
+                        [{ "name": { $regex: search, $options: 'i' } },
+                         { "type": { $regex: search, $options: 'i' } }]
+                }).skip(req.body.skip).limit(6)
+
+            res.status(200).json(foods)
+        } catch {
+            res.status(500).json("sth went wrong")
+        }
+    } else {
+        try {
+            const foods = await Food.find().skip(req.body.skip).limit(6)
+            res.status(200).json(foods)
+        } catch (err) {
+            res.status(500).json("not found")
+        }
     }
+
+
 })
+
+
 //get by id
 router.get('/:id', async (req, res) => {
     try {
@@ -80,10 +102,12 @@ router.put('/comment/:id', verify, async (req, res) => {
         }
 
         if (!hasComment[0]) {
-            const h=new Date()
-            
-            await food.comments.push({ comment: req.body.comment, commenter: req.user.id,
-                 name: req.user.name,h:{year:h.getFullYear(),month:h.getMonth(),day:h.getDay(),hour:h.getHours(),min:h.getMinutes()} })
+            const h = new Date()
+
+            await food.comments.push({
+                comment: req.body.comment, commenter: req.user.id,
+                name: req.user.name, h: { year: h.getFullYear(), month: h.getMonth(), day: h.getDay(), hour: h.getHours(), min: h.getMinutes() }
+            })
             const saved = await food.save()
             res.status(200).json('youre comment added')
         }

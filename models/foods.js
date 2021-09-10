@@ -7,9 +7,9 @@ const foodSchema = new mongoose.Schema({
     pic: { required: true, type: String },
     price: { required: true, type: Number },
     madeFrom: { required: true, type: String },
-    rates: {type:Array},
+    rates: { type: Array },
     comments: { type: Array }
 }, { timestamps: true });
-
+foodSchema.index({name: 'text',type:"text"});
 module.exports = mongoose.model('Food', foodSchema)
 

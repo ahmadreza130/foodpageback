@@ -3,24 +3,24 @@ Content-Type: application/json
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMTk1MWZhM2FjZWEzNDRmODQ2OTYzNCIsImlzQWRtaW4iOnRydWUsIm5hbWUiOiJhaG1hZHJlemFhYSIsImlhdCI6MTYyOTU3MTc4NiwiZXhwIjoxNjI5ODMwOTg2fQ.zEDC9kZXo396lu9qR5O6mJ8wJ-6naLlzN6ysYWhOKss
 
 ###
-POST https://pizzland.herokuapp.com/user/register
+POST http://localhost:5000/user/register
 Content-Type: application/json
 
 { 
-     "name":"ahmad",
-     "email":"ahmadrexs1d20@gmail.com",
-     "password":"ahmadrexs120",
+     "name":"ahmadreza",
+     "email":"ahmadrexs1@gmail.com",
+     "password":"ahmadreza130",
      "address":"sdfdsvgd"
      
 }
 ###
-POST https://pizzland.herokuapp.com/login
+POST http://localhost:5000/user/login
 Content-Type: application/json
 
 { 
     
-     "email":"ahmadrexs1d20@gmail.com",
-     "password":"ahmadrexs120"
+     "email":"ahmadrexs1@gmail.com",
+     "password":"ahmadreza130"
 }
 ###
 
@@ -43,22 +43,26 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMTk1MWZhM2FjZWEzNDRmODQ2O
 
 POST http://localhost:5000/foods/newFood
 Content-Type: application/json
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMTk1MWZhM2FjZWEzNDRmODQ2OTYzNCIsImlzQWRtaW4iOnRydWUsIm5hbWUiOiJhaG1hZHJlemFhYSIsImlhdCI6MTYyOTc0MTU2MywiZXhwIjoxNjMwMDAwNzYzfQ.rFCfXanbpHgwpi74SlbJ2JwFQCJZ4DFmDLAcgDLIRXI
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxM2I1OWU5ZDBlZTQ2MDU1NDVhMjIwYyIsImlzQWRtaW4iOnRydWUsIm5hbWUiOiJhaG1hZHJlemEiLCJpYXQiOjE2MzEyNzk3MDEsImV4cCI6MTYzMTUzODkwMX0.NRLllFy8GgKEjsuHtnWj5mYrQy4TKK44zLFEGy4gxKw
 
 { 
-     "type":"fastFood",
-     "name":"peperoni pizza",
-     "pic":"https://previews.123rf.com/images/danilsneg/danilsneg1706/danilsneg170600158/81077084-peperoni-pizza-italienische-pizza-auf-wei%C3%9Fem-hintergrund-.jpg",
-     "price":12,
-     "madeFrom":"cheese,onion,meat,peperoni,chicken"
+     "type":"Persian",
+     "name":"Mashroom pizza",
+     "pic":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGsPi8XXEvWaTwowaJwXoCKfruRMBvPwV_3Q&usqp=CAU",
+     "price":10,
+     "madeFrom":"meat,onion,meat,mashroom"
      
 }
 ###
 ###
 
-GET  https://pizzland.herokuapp.com/foods
+POST   http://localhost:5000/foods
 Content-Type: application/json
 
+{
+     "searched":"",
+     "skip":0
+}
 
 ###
 PUT  http://localhost:5000/foods/rate/611ab1622caa35287c25584f
