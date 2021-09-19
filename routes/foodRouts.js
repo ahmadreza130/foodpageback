@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
                 {
                     $or:
                         [{ "name": { $regex: search, $options: 'i' } },
-                         { "type": { $regex: search, $options: 'i' } }]
+                        { "type": { $regex: search, $options: 'i' } }]
                 }).skip(req.body.skip).limit(6)
 
             res.status(200).json(foods)
@@ -93,12 +93,12 @@ router.put('/comment/:id', verify, async (req, res) => {
     try {
         const food = await Food.findById(req.params.id)
 
-        const hasComment = food.comments.map(comment =>
-            req.user.id === comment.commenter ? true : false)
+        const hasComment = food.comments.filter(comment =>
+             comment.commenter=== req.user.id) 
 
         if (hasComment[0]) {
             console.log(req.user)
-            res.status(200).json('you already has left a comment  for this food')
+            res.status(400).json('you already has left a comment  for this food')
         }
 
         if (!hasComment[0]) {
@@ -116,24 +116,15 @@ router.put('/comment/:id', verify, async (req, res) => {
     }
 })
 //deleteComment
-router.delete('/deleteComment/:id', verify, async (req, res) => {
+router.delete('/deleteComment/:film', verify, async (req, res) => {
     if (req.user.id === req.body.id || req.user.isAdmin) {
         try {
-            const food = await Food.findById(req.params.id)
+            const food = await Food.findById(req.params.film)
 
-            const hasComment = food.comments.map(comment =>
-                req.user.id === comment.commenter ? true : false)
+            food.comments = await food.comments.filter(c => c.commenter !== req.user.id)
+            const saved = await food.save()
+            res.status(200).json(saved)
 
-            if (!hasComment[0]) {
-                res.status(400).json('you dont have any comment')
-            }
-
-            if (hasComment[0]) {
-
-                food.comments = await food.comments.filter(c => c.commenter !== req.user.id)
-                const saved = await food.save()
-                res.status(200).json(saved)
-            }
         } catch (err) {
             res.status(500).json(err)
         }
