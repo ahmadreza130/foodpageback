@@ -94,7 +94,7 @@ router.put('/comment/:id', verify, async (req, res) => {
         const food = await Food.findById(req.params.id)
 
         const hasComment = food.comments.filter(comment =>
-             comment.commenter=== req.user.id) 
+            comment.commenter === req.user.id)
 
         if (hasComment[0]) {
             console.log(req.user)
@@ -117,11 +117,12 @@ router.put('/comment/:id', verify, async (req, res) => {
 })
 //deleteComment
 router.delete('/deleteComment/:food', verify, async (req, res) => {
-    if ( req.body.commenter=== req.user.id || req.user.isAdmin) {
+    if (req.body.commenter === req.user.id || req.user.isAdmin) {
         try {
             const food = await Food.findById(req.params.food)
 
-            food.comments = await food.comments.filter(c => c.commenter !== req.body.commenter)
+            const newcomments = await food.comments.filter(c => c.commenter !== req.body.commenter)
+            food.comments = newcomments
             const saved = await food.save()
             res.status(200).json(saved)
 
