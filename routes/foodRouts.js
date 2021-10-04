@@ -97,7 +97,7 @@ router.put('/comment/:id', verify, async (req, res) => {
             comment.commenter === req.user.id)
 
         if (hasComment[0]) {
-            console.log(req.user)
+          
             res.status(400).json('you already has left a comment  for this food')
         }
 
